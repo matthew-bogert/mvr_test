@@ -14,8 +14,10 @@ int main(int argc, char *argv[])
     // Determine runtype (request or response)
     if (!strcmp(runtype, "Request")) {
         // run verifyRequest
-        printf(" \n");
-        sprintf(result, "%d", verifyRequest(argv[2], argv[3], argv[4], argv[5], argv[6], argv[7], argv[8], argv[9], argv[10], argv[11]));
+        printf("RunRequest\n");
+        const int jj = verifyRequest(argv[2], argv[3], argv[4], argv[5], argv[6], argv[7], argv[8], argv[9], argv[10], argv[11]);
+        // sprintf(result, "%d", verifyRequest(argv[2], argv[3], argv[4], argv[5], argv[6], argv[7], argv[8], argv[9], argv[10], argv[11]));
+        printf("Post RunRequest\n");
     } else if (!strcmp(runtype, "Record")) {
         // retrieve textblob from the given file, and run verifyRecord
         const char cleanRecord[5000] = {'\0'};
@@ -24,7 +26,7 @@ int main(int argc, char *argv[])
         // Shouldn't get to this block...
         sprintf(result, "%d", -1);
     }
-    printf("%d\n", result);
+    printf("Result: %d\n", result);
     return result;
 }
 
@@ -34,11 +36,11 @@ int main(int argc, char *argv[])
  * we only check for Lic in WA
  */ 
 int verifyRequest(char *reason, char *length, char *lic, char *lname, char *fname, char *dob, char *reference, char *subAccount, char *ssn, char *postbackURL){
-
-  if ( lic == NULL || strlen(lic)< 12 ) {
-    return -201;
-  }
-  return 0;
+    printf("Did we make the method?\n");
+//   if ( lic == NULL || strlen(lic) < 12 ) {
+//     return -201;
+//   }
+  return 1;
 }
 
 /**
